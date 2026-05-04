@@ -32,6 +32,13 @@ public class MovePlayer : MonoBehaviour
             animator.SetFloat("VelY", y);
 
             animator.SetFloat("Blend", movementInput.magnitude);
+
+
+            if (Keyboard.current.mKey.wasPressedThisFrame)
+            {
+                animator.SetTrigger("Dance");
+            }
+
         }
 
     }

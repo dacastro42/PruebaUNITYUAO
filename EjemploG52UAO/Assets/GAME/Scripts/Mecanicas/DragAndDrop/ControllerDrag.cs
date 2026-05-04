@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using TMPro;
 
 public class ControllerDrag : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class ControllerDrag : MonoBehaviour
     public Transform positionInicial;
     GameObject objInstanciado;
     bool t = true;
+
+    public TextMeshProUGUI scorenum;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -50,6 +54,9 @@ public class ControllerDrag : MonoBehaviour
         if (other.CompareTag("Draggable"))
         {
             Debug.Log("Objeto arrastrado dentro del trigger");
+            
+            GameManager.Instance.AddScore(10);
+            scorenum.text = GameManager.Instance.TotalScore.ToString();
         }
     }
 
